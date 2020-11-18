@@ -1,12 +1,12 @@
 import React from "react";
 import "./Login.css";
-import { loginUrl } from "./spotify";
+import { accessUrl } from "./spotify";
 
 function Login() {
   return (
     <div className="login">
       <img src="spotify-logo.png" alt="" />
-      <a href={loginUrl}>LOGIN WITH SPOTIFY</a>
+      <a href={accessUrl}>LOGIN WITH SPOTIFY</a>
     </div>
   );
 }

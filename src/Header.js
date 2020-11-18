@@ -1,24 +1,26 @@
 import React from "react";
 import "./Header.css";
-import SearchIcon from "@material-ui/icons/Search";
+import { useStateValue } from "./StateProvider";
 import { Avatar } from "@material-ui/core";
-import { useDataLayerValue } from "./DataLayer";
+import SearchIcon from "@material-ui/icons/Search";
+import { useEffect } from "react";
 
-function Header() {
-  const [{ user }, dispatch] = useDataLayerValue();
+function Header({ spotify }) {
+  const [{ user }, dispatch] = useStateValue();
 
   return (
     <div className="header">
       <div className="header__left">
         <SearchIcon />
         <input
-          placeholder="Search for Artists, Songs, or Playlists"
+          placeholder="Search for Artists, Songs, or Podcasts "
           type="text"
         />
       </div>
-      <div className="header__right"></div>
-      <Avatar src={user?.images[0].url} alt="Brendan's avatar" />
-      <h4>{user?.display_name}</h4>
+      <div className="header__right">
+        <Avatar alt={user?.display_name} src={user?.images[0].url} />
+        <h4>{user?.display_name}</h4>
+      </div>
     </div>
   );
 }
